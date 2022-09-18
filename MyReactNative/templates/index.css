@@ -1,0 +1,15 @@
+h1{
+    color: silver;
+}
+form{
+    padding-top: 100px;
+    width: 100%;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input{
+    margin-top: 10px;
+}
