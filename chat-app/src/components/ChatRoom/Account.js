@@ -1,4 +1,14 @@
-import { Avatar, Col, Row, Radio, Space, Tabs } from "antd";
+import {
+  Avatar,
+  Col,
+  Row,
+  Radio,
+  Space,
+  Tabs,
+  Dropdown,
+  Menu,
+  Switch,
+} from "antd";
 import React, { useState } from "react";
 import { Tooltip, Button } from "antd";
 import {
@@ -8,9 +18,75 @@ import {
   MessageOutlined,
   ToolOutlined,
   WalletOutlined,
+  DownOutlined,
+  BarsOutlined,
 } from "@ant-design/icons";
 
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+//Khai bao items menu ba cham
+const items = [
+  getItem("", "sub1", <BarsOutlined />, [
+    getItem("Đánh dấu đã đọc", "1"),
+    getItem("Gửi tin đồng thời", "2"),
+    getItem("Trở lại giao diện cơ bản", "3"),
+  ]),
+];
+
+const onChange = (checked) => {
+  console.log(`switch to ${checked}`);
+};
+
+//khai bao item menu Phan loai
+const menu = (
+  <Menu
+    items={[
+      {
+        key: "1",
+        label: (
+          <>
+            <p>Chọn nhiều</p>
+            <Switch defaultChecked onChange={onChange} />
+          </>
+        ),
+      },
+      {
+        key: "2",
+        label: <p>Khách hàng</p>,
+      },
+      {
+        key: "3",
+        label: <p>Gia đình</p>,
+      },
+      {
+        key: "4",
+        danger: true,
+        label: "Tin nhắn từ người lạ",
+      },
+    ]}
+  />
+);
 export default function Account() {
+  // khai bao bien doi mau cho option menubar
+  const [theme, setTheme] = useState("dark");
+  const [current, setCurrent] = useState("1");
+
+  // doi mau toi -> sang
+  const changeTheme = (values) => {
+    setTheme(values ? "dark" : "light");
+  };
+
+  const onClick = (e) => {
+    console.log("click", e);
+    setCurrent(e.key);
+  };
   return (
     <Row
       style={{
@@ -31,7 +107,33 @@ export default function Account() {
             }
             key="tab1"
           >
-            <div>This is content of Message</div>
+            <div>
+              <Row
+                style={{
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  border: 0.5,
+                  borderColor: "#000000",
+                }}
+              >
+                <Tabs defaultActiveKey="1" style={{ marginLeft: 10 }}>
+                  <Tabs.TabPane tab="Tất cả" key="1">
+                    Content of Tab Pane 1
+                  </Tabs.TabPane>
+                  <Tabs.TabPane tab="Chưa đọc" key="2">
+                    Content of Tab Pane 2
+                  </Tabs.TabPane>
+                </Tabs>
+                <Dropdown overlay={menu} trigger={["click"]}>
+                  <a onClick={(e) => e.preventDefault()}>
+                    <Space style={{ marginBottom: 37 }}>
+                      Phân loại
+                      <DownOutlined />
+                    </Space>
+                  </a>
+                </Dropdown>
+              </Row>
+            </div>
           </Tabs.TabPane>
           <Tabs.TabPane
             tab={
