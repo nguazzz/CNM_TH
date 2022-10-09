@@ -8,9 +8,6 @@ export default function ChatRoom() {
   return (
     <div>
       <Row>
-        <Col span={1}>
-          <Account />
-        </Col>
         <Col span={7}>
           <SideBar />
         </Col>
