@@ -7,11 +7,14 @@ import Account from "./Account";
 export default function ChatRoom() {
   return (
     <div>
-      <Row>
+      <Row span={2}>
+        <Col>
+          <Account />
+        </Col>
         <Col span={7}>
           <SideBar />
         </Col>
-        <Col span={16}>
+        <Col span={14}>
           <ChatWindow />
         </Col>
       </Row>

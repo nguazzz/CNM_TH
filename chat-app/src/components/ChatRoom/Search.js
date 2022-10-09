@@ -13,16 +13,10 @@ export default function Search() {
       style={{
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#0068FF",
+
         padding: 10,
       }}
     >
-      {/* Avatar */}
-      <Col style={{}} span={3}>
-        <Avatar style={{ alignItems: "center", marginLeft: 15 }}>
-          Hoang Dtr
-        </Avatar>
-      </Col>
       <Col
         span={15}
         style={{
