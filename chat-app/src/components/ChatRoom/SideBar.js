@@ -7,14 +7,12 @@ import Account from "./Account";
 export default function SideBar() {
   return (
     <Row>
-      <Col span={24}>
+      <Col span={24} style={{ marginBottom: 15 }}>
         <Search />
       </Col>
-      <Row align="left">
-        <Col>
-          <Account />
-        </Col>
-      </Row>
+      <Col span={24}>
+        <Account />
+      </Col>
     </Row>
   );
 }

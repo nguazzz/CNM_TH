@@ -1,25 +1,14 @@
-import {
-  Avatar,
-  Col,
-  Row,
-  Radio,
-  Space,
-  Tabs,
-  Dropdown,
-  Menu,
-  Switch,
-} from "antd";
+import { Avatar, Col, Row, Space, Tabs, Dropdown, Menu, Switch } from "antd";
 import React, { useState } from "react";
-import { Tooltip, Button } from "antd";
+import { Button } from "antd";
 import {
   CheckSquareOutlined,
   CloudOutlined,
   ContactsOutlined,
   MessageOutlined,
-  ToolOutlined,
-  WalletOutlined,
   DownOutlined,
   BarsOutlined,
+  UserAddOutlined,
 } from "@ant-design/icons";
 
 function getItem(label, key, icon, children, type) {
@@ -94,9 +83,7 @@ export default function Account() {
         justifyContent: "space-between",
       }}
     >
-      <Col style={{ marginBottom: 40, marginTop: 15 }}>
-        <Avatar>Hoang Dtr</Avatar>
-      </Col>
+      {/* Tab sidebar */}
       <Col>
         <Tabs defaultActiveKey="tab1" tabPosition="left">
           <Tabs.TabPane
@@ -126,7 +113,7 @@ export default function Account() {
                 </Tabs>
                 <Dropdown overlay={menu} trigger={["click"]}>
                   <a onClick={(e) => e.preventDefault()}>
-                    <Space style={{ marginBottom: 37 }}>
+                    <Space style={{ marginBottom: 37, marginLeft: 80 }}>
                       Phân loại
                       <DownOutlined />
                     </Space>
@@ -135,6 +122,8 @@ export default function Account() {
               </Row>
             </div>
           </Tabs.TabPane>
+
+          {/* Tab Contact */}
           <Tabs.TabPane
             tab={
               <span>
@@ -143,8 +132,14 @@ export default function Account() {
             }
             key="tab2"
           >
-            <div>This is content of ContactsOutlined</div>
+            <div>
+              <Button icon={<UserAddOutlined />}>
+                Thêm bạn bằng số điện thoại
+              </Button>
+            </div>
           </Tabs.TabPane>
+
+          {/* Tab To-do */}
           <Tabs.TabPane
             tab={
               <span>
@@ -162,9 +157,8 @@ export default function Account() {
           <br />
           <br />
           <br />
-          <br />
-          <br />
 
+          {/* Tab Cloud */}
           <Tabs.TabPane
             tab={
               <span>
@@ -175,16 +169,21 @@ export default function Account() {
           >
             <div>This is content of Cloud</div>
           </Tabs.TabPane>
-          <Tabs.TabPane
+          {/* <Tabs.TabPane
             tab={
               <span>
-                <ToolOutlined style={{ fontSize: "20px" }} />
+                <SettingOutlined style={{ fontSize: "20px" }} />
               </span>
             }
-            key="tab4"
           >
-            <div>This is content of Tools</div>
-          </Tabs.TabPane>
+            <Dropdown overlay={menu} trigger={["click"]}>
+              <a onClick={(e) => e.preventDefault()}>
+                <Space style={{ marginBottom: 37, marginLeft: 80 }}>
+                  <SettingOutlined />
+                </Space>
+              </a>
+            </Dropdown>
+          </Tabs.TabPane> */}
         </Tabs>
       </Col>
     </Row>

@@ -1,5 +1,5 @@
 import { Col, Row, Tooltip, Button } from "antd";
-import { Input, Tabs } from "antd";
+import { Input, Tabs, Avatar } from "antd";
 import {
   SearchOutlined,
   UserAddOutlined,
@@ -13,11 +13,18 @@ export default function Search() {
       style={{
         justifyContent: "space-between",
         alignItems: "center",
-        marginTop: 10,
+        backgroundColor: "#0068FF",
+        padding: 10,
       }}
     >
+      {/* Avatar */}
+      <Col style={{}} span={3}>
+        <Avatar style={{ alignItems: "center", marginLeft: 15 }}>
+          Hoang Dtr
+        </Avatar>
+      </Col>
       <Col
-        span={18}
+        span={15}
         style={{
           alignItems: "center",
           justifyContent: "space-around",
